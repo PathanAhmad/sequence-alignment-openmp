@@ -8,6 +8,13 @@ This project implements **global pairwise sequence alignment** for long DNA-like
 
 The core idea is to fill a dynamic programming matrix \( S \) using a scoring scheme (match, mismatch, gap) and then perform a traceback to recover the aligned sequences. The parallel versions use **wavefront (anti-diagonal) parallelization** over blocks of the matrix.
 
+### What this project demonstrates
+
+- **Parallel algorithms**: Implementing a dynamic-programming based sequence alignment both sequentially and with two OpenMP task-based variants.
+- **Task-based parallelism**: Using `taskloop`, explicit `task`s, and reductions to explore different ways of expressing parallel work and controlling granularity.
+- **Performance + correctness mindset**: Comparing visited-cell counts and validating parallel outputs against the sequential baseline on multiple datasets.
+- **Systems-level C++**: Working with raw pointers, contiguous 2D allocations, and large in-memory matrices using C++20 and OpenMP.
+
 ### Features
 
 - **Three execution modes**
